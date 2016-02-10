@@ -14,7 +14,9 @@ class App extends Component {
       isFetchingData: false,
       user: {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        email: '',
+        emailIsValid: ''
       }
     }
 
