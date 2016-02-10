@@ -4,7 +4,7 @@ class EmailForm extends Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
     onTypeaheadChange: React.PropTypes.func
-  }
+  };
 
   render () {
     let { onTypeaheadChange } = this.props
