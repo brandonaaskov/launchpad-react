@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import ReactToastr from 'react-toastr'
+import { Link } from 'react-router'
 import userActions from '../actions/user-actions'
+import contactActions from '../actions/contact-actions'
+import toastrActions from '../actions/toastr-actions'
 
 let { ToastContainer } = ReactToastr
 let ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation)
@@ -21,6 +24,8 @@ class App extends Component {
     }
 
     userActions.init(this.update.bind(this))
+    contactActions.init(this.update.bind(this), this.copy.bind(this))
+    toastrActions.init(this.notify.bind(this))
   }
 
   update (stateSlice) {
@@ -33,21 +38,25 @@ class App extends Component {
     return _.clone(this.state[stateSlice])
   }
 
-  render () {
-    let pathname = window.location.pathname
+  notify (message, type = 'success') {
+    this.refs.toastr[type]('', message, {
+      closeButton: true
+    })
+  }
 
+  render () {
     return (
       <div>
-        <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
+        <ToastContainer toastMessageFactory={ToastMessageFactory} ref="toastr" className="toast-top-right" />
         <header className="app-header">
-          <a href="/" className="logo">
+          <Link to='/'>
             <img src="images/logo.png" height="50" width="50" />
-          </a>
+          </Link>
 
           <nav>
-            <a href="/" className={pathname === '/' ? '' : 'active'}>Home</a>
-            <a href="/contact" className={_.includes(pathname, 'contact') ? 'active' : ''}>Contact</a>
-            <a href="/about-us" className={_.includes(pathname, 'about-us') ? 'active' : ''}>About Us</a>
+            <Link to='/'>Home</Link>
+            <Link to='/about-us'>About Us</Link>
+            <Link to='/contact'>Contact</Link>
           </nav>
 
           <span className="user">{this.state.user.firstName} {this.state.user.lastName}</span>

@@ -1,5 +1,16 @@
 @import './reset.css';
+@import './toastr.scss';
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300);
+
+body {
+  font-family: 'Roboto';
+}
+
+h1 {
+  font-family: 'Roboto';
+  font-size:  50px;
+  font-weight: 700;
+}
 
 .app-header {
   position: relative;
@@ -18,12 +29,16 @@
   }
 }
 
-body {
-  font-family: 'Roboto';
-}
+.email-form {
+  &.valid {
+    input.email {
+      background-color: lime;
+    }
+  }
 
-h1 {
-  font-family: 'Roboto';
-  font-size:  50px;
-  font-weight: 700;
+  &.invalid {
+    input.email {
+      background-color: red;
+    }
+  }
 }

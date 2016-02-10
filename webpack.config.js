@@ -6,7 +6,7 @@ module.exports = {
     "launchpad-react": ['./src/index.js']
   },
   output: {
-    path: path.join(__dirname, './server/scripts/'),
+    path: path.join(__dirname, './server/public/scripts/'),
     filename: '[name].js',
     sourceMapFilename: '[name].map',
   },
