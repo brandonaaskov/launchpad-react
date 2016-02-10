@@ -24,5 +24,6 @@ function onTypeaheadChange (email) {
 module.exports = {
   init,
   onTypeaheadChange,
+  isEmail,
   contactChannel: channel
 }
