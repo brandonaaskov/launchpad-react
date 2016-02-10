@@ -1,0 +1,29 @@
+@import './reset.css';
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300);
+
+.app-header {
+  position: relative;
+
+  .logo {
+    float: left;
+
+    img {
+      height: 50px;
+    }
+  }
+
+  nav > a {
+    margin-right: 20px;
+    display: inline-block;
+  }
+}
+
+body {
+  font-family: 'Roboto';
+}
+
+h1 {
+  font-family: 'Roboto';
+  font-size:  50px;
+  font-weight: 700;
+}
